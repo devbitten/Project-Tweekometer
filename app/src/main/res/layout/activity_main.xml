@@ -75,21 +75,21 @@
                        android:layout_height="wrap_content"
                        android:orientation="horizontal">
                        <ImageButton
-                           android:layout_width="wrap_content"
+                           android:layout_width="75dp"
                            android:layout_height="wrap_content"
-                           android:id="@+id/coffeeButton"
+                           android:id="@+id/Button01"
                            android:src="@drawable/coffee_tn"
                            android:onClick="addCoffee"/>
                        <ImageButton
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:id="@+id/cokeButton"
+                           android:id="@+id/Button02"
                            android:src="@drawable/coke_tn"
                            android:onClick="addCoke"/>
                        <ImageButton
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:id="@+id/RedBullButton"
+                           android:id="@+id/Button03"
                            android:src="@drawable/redbull_tn"
                            android:onClick="addRedBull"/>
                    </LinearLayout>
@@ -100,7 +100,7 @@
                        <ImageButton
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:id="@+id/awakeButton"
+                           android:id="@+id/Button04"
                            android:src="@drawable/awake_tn"
                            android:onClick="addAwake"/>
 

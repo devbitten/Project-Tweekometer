@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,8 +21,12 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
     // Declaring the Toolbar Object
     private Toolbar toolbar;
-    // TODO : DELETE THIS, images should be 300x300
-    // TODO : DO SOMETHING WITH JSON PARSER
+
+    //ADD MAIN BUTTONS
+    ImageButton btn1 = (ImageButton) findViewById(R.id.Button01);
+    ImageButton btn2 = (ImageButton) findViewById(R.id.Button02);
+    ImageButton btn3 = (ImageButton) findViewById(R.id.Button03);
+    ImageButton btn4 = (ImageButton) findViewById(R.id.Button04);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +37,31 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         // Setting toolbar as the ActionBar with setSupportActionBar() call
         setSupportActionBar(toolbar);
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addCoffee(v);
+            }
+        });
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addCoke(v);
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addRedBull(v);
+            }
+        });
+        btn4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                addAwake(v);
+            }
+        });
 
         // TODO : REMOVE (USING TO DEBUG PRODUCTS JSON)
         loadProducts();
@@ -95,7 +127,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void addAwake(android.view.View v)
     {
-
+        Log.d("AWAKEN", "+1 AKAKE");
     }
     public void addCoke(android.view.View v)
     {
@@ -103,7 +135,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void addCoffee(android.view.View v)
     {
-
+        Log.d("CAFE", "+1 CAFE");
     }
     public void addRedBull(android.view.View v)
     {
