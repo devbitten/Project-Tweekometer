@@ -21,18 +21,12 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
     // Declaring the Toolbar Object
     private Toolbar toolbar;
-    // TODO : DELETE THIS, images should be 300x300
-    // TODO : DO SOMETHING WITH JSON PARSER
 
     //ADD MAIN BUTTONS
     ImageButton btn1 = (ImageButton) findViewById(R.id.Button01);
     ImageButton btn2 = (ImageButton) findViewById(R.id.Button02);
     ImageButton btn3 = (ImageButton) findViewById(R.id.Button03);
     ImageButton btn4 = (ImageButton) findViewById(R.id.Button04);
-
-    //ADD EXTRA BUTTONS
-    //Button btnA = (Button) findViewById(R.id.ButtonA);
-    //Button btnB = (Button) findViewById(R.id.ButtonB);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
