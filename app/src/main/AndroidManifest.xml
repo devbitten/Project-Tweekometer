@@ -16,7 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".profile"></activity>
+        <activity android:name="com.example.user.project_tweekometer.UserProfile">
+            android:parentActivityName="com.example.user.project_tweekometer.MainActivity" >
+
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.user.project_tweekometer.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
