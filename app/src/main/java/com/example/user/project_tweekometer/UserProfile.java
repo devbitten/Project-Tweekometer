@@ -5,4 +5,6 @@ package com.example.user.project_tweekometer;
  */
 
 public class UserProfile {
+    public double weight, age;
+    public String userName, userPassword, caffeineSensitivity;
 }
