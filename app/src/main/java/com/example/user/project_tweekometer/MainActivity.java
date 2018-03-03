@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btn2 = (ImageButton) findViewById(R.id.Button02);
     ImageButton btn3 = (ImageButton) findViewById(R.id.Button03);
     ImageButton btn4 = (ImageButton) findViewById(R.id.Button04);
+    //Adding Database Helper to connect with: Users, consumption, and products
+    DatabaseHelper mDatabaseHelper = new DatabaseHelper();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,6 +64,13 @@ public class MainActivity extends AppCompatActivity {
                 addAwake(v);
             }
         });
+
+        // TODO : TEST HERE FOR DB FUNCTIONALITY
+        boolean addedData = mDatabaseHelper.addUser("Abby", "222", "30", "2");
+        if(addedData)
+            Log.d("DB", "Success :o");
+        else
+            Log.d("DB", "DENIED :o");
 
         // TODO : REMOVE (USING TO DEBUG PRODUCTS JSON)
         loadProducts();
