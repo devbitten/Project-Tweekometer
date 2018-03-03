@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Project-Tweekometer</string>
+    <string name="action_profile">Profile</string>
 </resources>
