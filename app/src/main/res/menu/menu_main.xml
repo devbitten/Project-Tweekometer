@@ -9,7 +9,7 @@
         android:orderInCategory="100"
         android:title="@string/action_profile"
         android:icon="@drawable/ic_action_profile"
-        android:showAsAction="always" />
+        app:showAsAction="always" />
     <!-- TODO : USE AS REFERENCE
     <item
         android:id="@+id/action_search"
