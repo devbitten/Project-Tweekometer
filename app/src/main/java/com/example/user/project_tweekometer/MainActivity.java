@@ -51,9 +51,20 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            toSettings();
+            return true;
+        }
+        else if (id == R.id.action_profile)
+        {
+            toProfile();
+            return true;
+        }
+        else if (id == R.id.action_reset) {
+            reset();
             return true;
         }
 
+        else
         return super.onOptionsItemSelected(item);
     }
 
@@ -98,15 +109,15 @@ public class MainActivity extends AppCompatActivity {
     {
 
     }
-    public void reset(android.view.View v)
+    public void reset()
     {
 
     }
-    public void toProfile(android.view.View v)
+    public void toProfile()
     {
-
+        setContentView(R.layout.activity_user_profile);
     }
-    public void toSettings(android.view.View v)
+    public void toSettings()
     {
 
     }

@@ -11,26 +11,23 @@
         android:icon="@drawable/ic_action_profile"
         app:showAsAction="always"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="toProfile"/>
+        android:layout_height="wrap_content"/>
     <item
         android:id="@+id/action_reset"
-        android:orderInCategory="100"
+        android:orderInCategory="200"
         android:title="@string/action_reset"
         android:icon="@drawable/ic_action_reset"
         app:showAsAction="always"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="reset"/>
+        android:layout_height="wrap_content"/>
     <item
         android:id="@+id/action_settings"
-        android:orderInCategory="100"
+        android:orderInCategory="300"
         android:title="@string/action_settings"
         android:icon="@drawable/ic_action_settings"
         app:showAsAction="always"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="toSettings"/>
+        android:layout_height="wrap_content"/>
     <!-- TODO : USE AS REFERENCE
     <item
         android:id="@+id/action_search"
