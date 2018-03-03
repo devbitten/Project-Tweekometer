@@ -1,5 +1,6 @@
 package com.example.user.project_tweekometer;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +9,10 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.Toast;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -18,6 +23,7 @@ import java.util.Scanner;
 public class MainActivity extends AppCompatActivity {
     // Declaring the Toolbar Object
     private Toolbar toolbar;
+    ImageButton btn1, btn2, btn3, btn4;
     // TODO : DELETE THIS, images should be 300x300
     // TODO : DO SOMETHING WITH JSON PARSER
 
@@ -30,6 +36,43 @@ public class MainActivity extends AppCompatActivity {
         toolbar = (Toolbar) findViewById(R.id.tool_bar);
         // Setting toolbar as the ActionBar with setSupportActionBar() call
         setSupportActionBar(toolbar);
+
+        btn1 = (ImageButton)findViewById(R.id.coffeeButton);
+        btn1.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                addCoffee();
+            }
+        });
+        btn2 = (ImageButton)findViewById(R.id.cokeButton);
+        btn2.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                addCoke();
+            }
+        });
+        btn3 = (ImageButton)findViewById(R.id.RedBullButton);
+        btn3.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                addRedBull();
+            }
+        });
+        btn4 = (ImageButton)findViewById(R.id.awakeButton);
+        btn4.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View v)
+            {
+                addAwake();
+            }
+        });
 
         // TODO : REMOVE (USING TO DEBUG PRODUCTS JSON)
         loadProducts();
@@ -56,7 +99,9 @@ public class MainActivity extends AppCompatActivity {
         }
         else if (id == R.id.action_profile)
         {
+            //GOES HERE
             toProfile();
+            //AND HERE
             return true;
         }
         else if (id == R.id.action_reset) {
@@ -93,29 +138,35 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
-    public void addAwake(android.view.View v)
+    public void addAwake()
     {
-
+        Toast toast = Toast.makeText(getApplicationContext(), "Awake added", Toast.LENGTH_LONG );
+        toast.show();
     }
-    public void addCoke(android.view.View v)
+    public void addCoke()
     {
-
+        Toast toast = Toast.makeText(getApplicationContext(), "Coke added", Toast.LENGTH_LONG );
+        toast.show();
     }
-    public void addCoffee(android.view.View v)
+    public void addCoffee()
     {
-
+        Toast toast = Toast.makeText(getApplicationContext(), "Coffee added", Toast.LENGTH_LONG );
+        toast.show();
     }
-    public void addRedBull(android.view.View v)
+    public void addRedBull()
     {
-
+        Toast toast = Toast.makeText(getApplicationContext(), "RedBull added", Toast.LENGTH_LONG );
+        toast.show();
     }
     public void reset()
     {
-
+        
     }
     public void toProfile()
     {
-        setContentView(R.layout.activity_user_profile);
+
+        Intent intent = new Intent(this, UserProfile.class);
+        startActivity(intent);
     }
     public void toSettings()
     {
