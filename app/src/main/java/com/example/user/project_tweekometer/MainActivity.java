@@ -82,4 +82,32 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    public void addAwake(android.view.View v)
+    {
+
+    }
+    public void addCoke(android.view.View v)
+    {
+
+    }
+    public void addCoffee(android.view.View v)
+    {
+
+    }
+    public void addRedBull(android.view.View v)
+    {
+
+    }
+    public void reset(android.view.View v)
+    {
+
+    }
+    public void toProfile(android.view.View v)
+    {
+
+    }
+    public void toSettings(android.view.View v)
+    {
+
+    }
 }

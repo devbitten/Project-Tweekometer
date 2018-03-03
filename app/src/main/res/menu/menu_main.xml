@@ -11,7 +11,8 @@
         android:icon="@drawable/ic_action_profile"
         app:showAsAction="always"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:onClick="toProfile"/>
     <item
         android:id="@+id/action_reset"
         android:orderInCategory="100"
@@ -19,7 +20,8 @@
         android:icon="@drawable/ic_action_reset"
         app:showAsAction="always"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:onClick="reset"/>
     <item
         android:id="@+id/action_settings"
         android:orderInCategory="100"
@@ -27,7 +29,8 @@
         android:icon="@drawable/ic_action_settings"
         app:showAsAction="always"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:onClick="toSettings"/>
     <!-- TODO : USE AS REFERENCE
     <item
         android:id="@+id/action_search"
