@@ -4,6 +4,8 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
+import android.os.Handler;
+import android.os.SystemClock;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -16,6 +18,7 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,9 +39,12 @@ public class MainActivity extends AppCompatActivity {
     ImageButton btn1, btn2, btn3, btn4;
 
     //Caffeine and time variables
-    Timer timer;
-    double currentCaffeine;
-
+    private static double currentCaffeine;
+    private TextView mTextTime;
+    private Handler handler = new Handler();
+    private int timeElapsed;
+    //long MillisecondTime, StartTime, TimeBuff, UpdateTime = 0L;
+   // int Seconds, Minutes, MilliSeconds;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,20 +55,31 @@ public class MainActivity extends AppCompatActivity {
         // Setting toolbar as the ActionBar with setSupportActionBar() call
         setSupportActionBar(toolbar);
 
+
         //Needed for database
         mDatabaseHelper = new DatabaseHelper(this);
         currentCaffeine = 0;
         // TODO : Replace above with a caffeineOnStartup();
-        /*
-        timer = new Timer(1000);
-        timer.;
-        */
+        //TIMER BELOW
+        mTextTime = (TextView) findViewById(R.id.m_timer);
+        timeElapsed = 0;
+
+        handler = new Handler();
+        Runnable runnable = new Runnable() {
+            @Override
+            public void run() {
+                Log.d("DDR", "IT WAS CALLED");
+                handler.postDelayed(this, 1000);
+                timeElapsed += 1;
+                if(timeElapsed%60 < 10)
+                    mTextTime.setText( "" + (timeElapsed/60) + ":0" + (timeElapsed%60));
+                else
+                    mTextTime.setText( "" + (timeElapsed/60) + ":" + (timeElapsed%60));
+            }
+        };
+
+        handler.postDelayed(runnable, 1000);
         // TODO : TEST HERE FOR DB FUNCTIONALITY / MOVE
-        boolean addedData = mDatabaseHelper.addUser("Abby", "222", "30", "2");
-        if(addedData)
-            Log.d("DB", "Success :o");
-        else
-            Log.d("DB", "DENIED :o");
         // TODO : DELETE ABOVE
 
         btn1 = (ImageButton)findViewById(R.id.Button01);
@@ -108,6 +125,55 @@ public class MainActivity extends AppCompatActivity {
         // TODO : REMOVE (USING TO DEBUG PRODUCTS JSON)
         loadProducts();
     }
+
+  /*  public void Tick(){
+            StartTime = SystemClock.uptimeMillis();
+        handler.postDelayed(runnable, 0);
+
+
+    }
+    public Runnable runnable = new Runnable() {
+
+        public void run() {
+
+            MillisecondTime = SystemClock.uptimeMillis();
+
+            UpdateTime = TimeBuff + MillisecondTime;
+
+            Seconds = (int) (UpdateTime / 1000);
+
+            Minutes = Seconds / 60;
+
+            Seconds = Seconds % 60;
+
+            MilliSeconds = (int) (UpdateTime % 1000);
+
+            text.setText("" + Minutes + ":"
+                    + String.format("%02d", Seconds) + ":"
+                    + String.format("%03d", MilliSeconds));
+
+            handler.postDelayed(this, 0);
+        }
+
+    };*/
+
+  /* TEST DEL
+  public void textloop()
+  {
+      for (int i = 0; i < 5; i++)
+      {
+          TextView time=findViewById(R.id.timer);
+          time.setText(String.valueOf(i));
+      }
+  }
+
+
+    public void DisplayTime(int t)
+    {
+        TextView TIME = (TextView)findViewById(R.id.timer);
+        TIME.setText(String.valueOf(t));
+    }
+*/ //TEST DEL//
 
 
     @Override
@@ -198,6 +264,7 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Awake added: cf" + currentCaffeine, Toast.LENGTH_LONG );
         alterCaffeine(currentCaffeine);
         toast.show();
+        //textloop();
     }
     public void addCoke()
     {
@@ -235,4 +302,6 @@ public class MainActivity extends AppCompatActivity {
     {
 
     }
-}
+
+    }
+

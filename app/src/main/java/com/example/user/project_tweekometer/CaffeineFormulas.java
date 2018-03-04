@@ -79,7 +79,7 @@ public class CaffeineFormulas {
         return deltaCurrent;
     }
     
-    public static double checkTime() //return total time elapsed in seconds
+    public static double checkTime() //return total time elapsed in minutes
     {
         return (((System.currentTimeMillis()/1000)-startTime)/60);
     }
