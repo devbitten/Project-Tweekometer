@@ -1,7 +1,10 @@
 package com.example.user.project_tweekometer;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -99,9 +102,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         // TODO : REMOVE (USING TO DEBUG PRODUCTS JSON)
         loadProducts();
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -116,6 +123,19 @@ public class MainActivity extends AppCompatActivity {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("Reset?");
+        builder.setMessage("Are you sure you want to reset caffeine count?");
+        builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                reset();
+            }
+        });
+        builder.setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // do nothing
+            }
+        });
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
@@ -130,7 +150,7 @@ public class MainActivity extends AppCompatActivity {
             return true;
         }
         else if (id == R.id.action_reset) {
-            reset();
+            builder.show();
             return true;
         }
 
@@ -202,8 +222,9 @@ public class MainActivity extends AppCompatActivity {
     }
     public void reset()
     {
-        
+
     }
+
     public void toProfile()
     {
 
