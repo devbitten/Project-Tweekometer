@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Project-Tweekometer.iml" filepath="$PROJECT_DIR$/Project-Tweekometer.iml" />
       <module fileurl="file://C:\Users\User\AndroidStudioProjects\ProjectTweekometer\Project-Tweekometer.iml" filepath="C:\Users\User\AndroidStudioProjects\ProjectTweekometer\Project-Tweekometer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ProjectTweekometer.iml" filepath="$PROJECT_DIR$/ProjectTweekometer.iml" />
       <module fileurl="file://C:\Users\maupi\AndroidStudioProjects\Project-Tweekometer\ProjectTweekometer.iml" filepath="C:\Users\maupi\AndroidStudioProjects\Project-Tweekometer\ProjectTweekometer.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
     </modules>

@@ -19,6 +19,8 @@ import org.json.JSONObject;
 
 import java.io.InputStream;
 import java.util.Scanner;
+import java.util.Timer;
+import java.util.TimerTask;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -29,8 +31,10 @@ public class MainActivity extends AppCompatActivity {
     DatabaseHelper mDatabaseHelper;
     //ADD MAIN BUTTONS
     ImageButton btn1, btn2, btn3, btn4;
-    // TODO : DELETE THIS, images should be 300x300
-    // TODO : DO SOMETHING WITH JSON PARSER
+
+    //Caffeine and time variables
+    Timer timer;
+    double currentCaffeine;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,13 +46,21 @@ public class MainActivity extends AppCompatActivity {
         // Setting toolbar as the ActionBar with setSupportActionBar() call
         setSupportActionBar(toolbar);
 
-        // TODO : TEST HERE FOR DB FUNCTIONALITY
+        //Needed for database
         mDatabaseHelper = new DatabaseHelper(this);
+        currentCaffeine = 0;
+        // TODO : Replace above with a caffeineOnStartup();
+        /*
+        timer = new Timer(1000);
+        timer.;
+        */
+        // TODO : TEST HERE FOR DB FUNCTIONALITY / MOVE
         boolean addedData = mDatabaseHelper.addUser("Abby", "222", "30", "2");
         if(addedData)
             Log.d("DB", "Success :o");
         else
             Log.d("DB", "DENIED :o");
+        // TODO : DELETE ABOVE
 
         btn1 = (ImageButton)findViewById(R.id.Button01);
         btn1.setOnClickListener(new View.OnClickListener()
@@ -151,25 +163,42 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+
+    public void alterCaffeine(double amount){
+        boolean addedCn = mDatabaseHelper.addConsumption(System.currentTimeMillis(), currentCaffeine);
+        if(addedCn)
+            Log.d("AlterC", "Success :o");
+        else
+            Log.d("AlterC", "DENIED :o");
+    }
+
     public void addAwake()
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "Awake added", Toast.LENGTH_LONG );
+        currentCaffeine += 40;
+        Toast toast = Toast.makeText(getApplicationContext(), "Awake added: cf" + currentCaffeine, Toast.LENGTH_LONG );
+        alterCaffeine(currentCaffeine);
         toast.show();
     }
     public void addCoke()
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "Coke added", Toast.LENGTH_LONG );
+        currentCaffeine += 60;
+        Toast toast = Toast.makeText(getApplicationContext(), "Coke added: cf" + currentCaffeine, Toast.LENGTH_LONG );
         toast.show();
+        alterCaffeine(currentCaffeine);
     }
     public void addCoffee()
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "Coffee added", Toast.LENGTH_LONG );
+        currentCaffeine += 45;
+        Toast toast = Toast.makeText(getApplicationContext(), "Coffee added: cf" + currentCaffeine, Toast.LENGTH_LONG );
         toast.show();
+        alterCaffeine(currentCaffeine);
     }
     public void addRedBull()
     {
-        Toast toast = Toast.makeText(getApplicationContext(), "RedBull added", Toast.LENGTH_LONG );
+        currentCaffeine += 80;
+        Toast toast = Toast.makeText(getApplicationContext(), "Red Bull added: cf" + currentCaffeine, Toast.LENGTH_LONG );
         toast.show();
+        alterCaffeine(currentCaffeine);
     }
     public void reset()
     {
