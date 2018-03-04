@@ -60,7 +60,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public boolean addUser(String itemN, String itemA, String itemW, String itemS){
+    public boolean addUser(String itemN, String itemA, String itemW, int itemS){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues contentValues = new ContentValues();
         contentValues.put(COL_00, itemN);

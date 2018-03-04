@@ -58,11 +58,6 @@ public class MainActivity extends AppCompatActivity {
         timer.;
         */
         // TODO : TEST HERE FOR DB FUNCTIONALITY / MOVE
-        boolean addedData = mDatabaseHelper.addUser("Abby", "222", "30", "2");
-        if(addedData)
-            Log.d("DB", "Success :o");
-        else
-            Log.d("DB", "DENIED :o");
         // TODO : DELETE ABOVE
 
         btn1 = (ImageButton)findViewById(R.id.Button01);
