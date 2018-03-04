@@ -34,7 +34,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:gravity="center">
+                android:gravity="center"
+                android:background="@drawable/custom_border">
 
                 <TextView
                     android:layout_width="match_parent"
@@ -46,7 +47,8 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:background="@drawable/custom_border">
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -85,35 +87,38 @@
                    <LinearLayout
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:orientation="horizontal">
+                       android:orientation="horizontal"
+                       android:gravity="center_horizontal">
                        <ImageButton
-                           android:layout_width="75dp"
-                           android:layout_height="wrap_content"
+                           android:layout_width="150dip"
+                           android:layout_height="150dip"
                            android:id="@+id/Button01"
-                           android:src="@drawable/coffee_tn"
+                           android:background="@drawable/coffee_tn"
                            android:onClick="addCoffee"/>
                        <ImageButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
+                           android:layout_width="150dip"
+                           android:layout_height="150dip"
                            android:id="@+id/Button02"
-                           android:src="@drawable/coke_tn"
+                           android:background="@drawable/coke_tn"
                            android:onClick="addCoke"/>
-                       <ImageButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
-                           android:id="@+id/Button03"
-                           android:src="@drawable/redbull_tn"
-                           android:onClick="addRedBull"/>
                    </LinearLayout>
                    <LinearLayout
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
-                       android:orientation="horizontal">
+                       android:orientation="horizontal"
+                       android:gravity="center_horizontal">
+
                        <ImageButton
-                           android:layout_width="wrap_content"
-                           android:layout_height="wrap_content"
+                           android:layout_width="150dip"
+                           android:layout_height="150dip"
+                           android:id="@+id/Button03"
+                           android:background="@drawable/redbull_tn"
+                           android:onClick="addRedBull"/>
+                       <ImageButton
+                           android:layout_width="150dip"
+                           android:layout_height="150dip"
                            android:id="@+id/Button04"
-                           android:src="@drawable/awake_tn"
+                           android:background="@drawable/awake_tn"
                            android:onClick="addAwake"/>
 
                    </LinearLayout>
