@@ -50,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         else
             Log.d("DB", "DENIED :o");
 
-        btn1 = (ImageButton)findViewById(R.id.coffeeButton);
+        btn1 = (ImageButton)findViewById(R.id.Button01);
         btn1.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 addCoffee();
             }
         });
-        btn2 = (ImageButton)findViewById(R.id.cokeButton);
+        btn2 = (ImageButton)findViewById(R.id.Button02);
         btn2.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 addCoke();
             }
         });
-        btn3 = (ImageButton)findViewById(R.id.RedBullButton);
+        btn3 = (ImageButton)findViewById(R.id.Button03);
         btn3.setOnClickListener(new View.OnClickListener()
         {
             @Override
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
                 addRedBull();
             }
         });
-        btn4 = (ImageButton)findViewById(R.id.awakeButton);
+        btn4 = (ImageButton)findViewById(R.id.Button04);
         btn4.setOnClickListener(new View.OnClickListener()
         {
             @Override
