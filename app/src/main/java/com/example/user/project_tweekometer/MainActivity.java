@@ -35,6 +35,15 @@ public class MainActivity extends AppCompatActivity {
 
     //Adding Database Helper to connect with: Users, consumption, and products
     DatabaseHelper mDatabaseHelper;
+    double currentCaffeine = 0;
+    // TODO : Replace following section with good variables
+    //MASTER_TIMER
+    //TIL_GOOD_TIMER
+    //TIL_SLEEP_TIMER
+    int weightBAD = 50;
+    int currentCafBAD = 30;
+    
+    // TODO : DELETE ABOVE
     //ADD MAIN BUTTONS
     ImageButton btn1, btn2, btn3, btn4;
 
@@ -224,10 +233,8 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    /**
-     * This method loads the 'Product' content
-     */
-    public void loadProducts(/*View view*/){
+    /* TODO : DELETE ??
+      public void loadProducts(View view){
 
         Resources res = getResources();
 
@@ -249,8 +256,39 @@ public class MainActivity extends AppCompatActivity {
             e.printStackTrace();
         }
     }
+    */
 
+    /** This function is meant to initiate the countdown of the:
+     *   masterTimer, tilGoodTimer, tilSleepTimer, currentCaffeine
+     *   and currentConcetration
+     *
+     * @param lastTime  Last time a value was added to the database
+     * @param lastCaf   Last recorded caffeine value
+     */
+    public void initiateCaffeine(long lastTime, double lastCaf){
+        // TODO : INITIATE
+    }
+
+    /** This is meant to be run every time caffeine is added to body.
+     *   This updates the: currentCaffeine, and currentConcentration
+     *   Also record this ingestion to the database.
+     * @param amount    Amount of caffeine in body currently
+     */ // TODO : WRITE
     public void alterCaffeine(double amount){
+        boolean addedCn = mDatabaseHelper.addConsumption(System.currentTimeMillis(), currentCaffeine);
+        if(addedCn)
+            Log.d("AlterC", "Success :o");
+        else
+            Log.d("AlterC", "DENIED :o");
+    }
+
+    /** This is meant to be run every second that the Timer increments by a second.
+     *   This updates the: masterTimer, tilGoodTimer, tilSleepTimer,
+     *   currentCaffeine, and currentConcentration
+     *
+     * @param amount    Amount of caffeine in body one second ago
+     */ // TODO : WRITE
+    public void refreshCaffeine(double amount){
         boolean addedCn = mDatabaseHelper.addConsumption(System.currentTimeMillis(), currentCaffeine);
         if(addedCn)
             Log.d("AlterC", "Success :o");
@@ -264,7 +302,6 @@ public class MainActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(getApplicationContext(), "Awake added: cf" + currentCaffeine, Toast.LENGTH_LONG );
         alterCaffeine(currentCaffeine);
         toast.show();
-        //textloop();
     }
     public void addCoke()
     {
@@ -302,6 +339,4 @@ public class MainActivity extends AppCompatActivity {
     {
 
     }
-
-    }
-
+}
